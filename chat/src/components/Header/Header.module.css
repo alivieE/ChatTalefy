@@ -1,0 +1,47 @@
+.text{
+    color: white;
+
+}
+
+.davinchi{
+    width: 350px;
+}
+
+.underDavinchi{
+    width: 250px;
+    height: 250px;
+    background-image: url('../../assets/Davinchi.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.firtsPartHeader{
+    padding: 10px;
+    padding-left: 280px;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.secondPartHeader{
+    padding: 10px;
+    padding-bottom: 40px;
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.DavinchiPart{
+    gap: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.name{
+    color: white;
+}
+
+.mainPart{
+    border-bottom: 1px solid white;
+}
