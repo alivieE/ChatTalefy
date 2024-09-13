@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    flex-direction: column; /* Вертикальное выравнивание инпута и текста */
+    align-items: center;
+    position: relative;
+  }
+
+.inputWrapper {
+    position: relative;
+    display: inline-block;
+}
+  
+.input {
+    width: 405px;
+    height: 30px;
+    margin-top: 10px;
+    padding: 10px 40px 10px 10px;    
+    font-size: 16px;
+    background-color: rgb(57, 45, 70);
+    border-radius: 10px;  
+    border: none;
+}
+
+.arrowContainer {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+}
+  
+.arrowUp {
+    margin: 6px;
+    width: 20px; 
+}
+  
+.textUnderInput{
+    color: white;
+}
+
+
+.arrowButton {
+    position: absolute;
+    right: 7px;
+    top: 58%;
+    transform: translateY(-50%);
+    background-color: orange;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+  
+.textUnderInput {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-top: 5px;
+}
+  
+.message{
+    color: white;
+}

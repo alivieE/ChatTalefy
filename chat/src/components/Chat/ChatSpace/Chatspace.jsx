@@ -1,10 +1,14 @@
 import React from 'react'
+import s from './Chatspace.module.css'
 
 const Chatspace = () => {
   return (
-    <div>
-      
+    <div className={s.section}>
+      <div>
+        <p className={s.text}>tezsrdxhftcgjvhbjnkml,</p>
+      </div>
     </div>
+    
   )
 }
 
