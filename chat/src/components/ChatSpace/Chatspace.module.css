@@ -1,7 +1,53 @@
-.text{
+.heroName{
+    color: rgb(40, 13, 58);
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.heroMessageText{
     color: white;
+    font-size:18px;
+}
+
+.herotext{
+    background-color: blueviolet;
+    width: 65%;
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .section{
     height: 400px;
+    padding-top: 10px;
+    overflow-y: scroll;
+}
+
+.heroImage{
+    width: 70px;
+    height: 70px;
+    background-image: url('../../assets/Davinchi.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.heroAnswer{
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.userAsk{
+    color: white;
+    align-items: sdf;
+    background-color: rgb(255, 115, 0);
+    width: 65%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.userName{
+    padding-bottom: 5px;
+    font-size: 30px;
 }

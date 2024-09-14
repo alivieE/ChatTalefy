@@ -10,33 +10,30 @@ const TypeInput = ({messages, setMessages}) => {
     setInputValue(event.target.value);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = (e) => {
+    e.preventDefault()
     if (inputValue.trim()) {
       setMessages([...messages, inputValue]);
       setInputValue('');
     }
+    
   };
 
   return (
     <div className={s.container}>
-      <div className={s.messages}>
-        {messages.map((message, index) => (
-          <div key={index} className={s.message}>
-            {message}
-          </div>
-        ))}
-      </div>
-      <div className={s.inputWrapper}>
+      <form className={s.inputWrapper} onSubmit={handleSendMessage}>
+        
         <input
           className={s.input}
           placeholder="Type your message here"
           value={inputValue}
           onChange={handleInput}
+          
         />
-        <button className={s.arrowButton} onClick={handleSendMessage}>
+        <button className={s.arrowButton} type='submit'>
           <img className={s.arrowUp} src={images.arrowUp} alt="Arrow Up" />
         </button>
-      </div>
+      </form>
     </div>
   );
 };

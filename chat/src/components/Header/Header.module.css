@@ -13,6 +13,7 @@
     background-image: url('../../assets/Davinchi.jpg');
     background-size: cover;
     background-position: center;
+    border-radius: 10px;
 }
 
 .firtsPartHeader{

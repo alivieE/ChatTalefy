@@ -13,12 +13,19 @@
 .input {
     width: 405px;
     height: 30px;
-    margin-top: 10px;
     padding: 10px 40px 10px 10px;    
     font-size: 16px;
     background-color: rgb(57, 45, 70);
     border-radius: 10px;  
     border: none;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.input:hover, .input:focus{
+    border-color:orange;
 }
 
 .arrowContainer {
@@ -28,8 +35,8 @@
 }
   
 .arrowUp {
-    margin: 6px;
     width: 20px; 
+    height: 20px;
 }
   
 .textUnderInput{
@@ -40,12 +47,14 @@
 .arrowButton {
     position: absolute;
     right: 7px;
-    top: 58%;
+    top: 50%;
     transform: translateY(-50%);
     background-color: orange;
     border-radius: 10px;
     cursor: pointer;
-    
+    padding: 5px;
+    width: 30px;
+    height: 30px;
 }
   
 .textUnderInput {

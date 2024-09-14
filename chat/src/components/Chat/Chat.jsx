@@ -7,11 +7,12 @@ import s from './Chat.module.css'
 
 const Chat = () => {
   const [messages, setMessages] = useState([]); 
+  
 
   return (
     <section className={s.section}>
         <Header></Header>
-        <Chatspace></Chatspace>
+        <Chatspace messages = {messages}></Chatspace>
         <TypeInput messages = {messages} setMessages = {setMessages}></TypeInput>
     </section>
   )
