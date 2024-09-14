@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import s from './TypeInput.module.css'
 import images from '../../assets/index.js'
 
-const ChatApp = () => {
+const TypeInput = () => {
   const [inputValue, setInputValue] = useState('');
   const [messages, setMessages] = useState([]); 
 
@@ -41,4 +41,4 @@ const ChatApp = () => {
   );
 };
 
-export default ChatApp;
+export default TypeInput;

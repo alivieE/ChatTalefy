@@ -8,14 +8,14 @@ const Header = () => {
     <div className={s.mainPart}>
       <div className={s.firtsPartHeader}>
         <p className={s.text}>Chat with character</p>
-        <img src={images.close}></img>
+        <img src={images.close} alt='close'></img>
       </div>
       <div className={s.secondPartHeader}>
         <div className={s.DavinchiPart}>          
           <div className={s.underDavinchi}></div> 
           <p className={s.name}>DAVINCHI</p>         
         </div>
-        <img className={s.info}src={images.info}></img>
+        <img className={s.info} src={images.info} alt='info'></img>
         </div>
     </div>
     
