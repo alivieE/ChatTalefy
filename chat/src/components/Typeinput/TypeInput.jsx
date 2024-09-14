@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import s from './TypeInput.module.css'
 import images from '../../assets/index.js'
 
-const TypeInput = () => {
+const TypeInput = ({messages, setMessages}) => {
   const [inputValue, setInputValue] = useState('');
-  const [messages, setMessages] = useState([]); 
+  
 
   const handleInput = (event) => {
     setInputValue(event.target.value);

@@ -5,7 +5,7 @@ const Chatspace = () => {
   return (
     <div className={s.section}>
       <div>
-        <p className={s.text}>tezsrdxhftcgjvhbjnkml,</p>
+        <p className={s.text}></p>
       </div>
     </div>
     
