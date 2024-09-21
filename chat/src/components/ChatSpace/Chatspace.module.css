@@ -26,6 +26,16 @@
     border-radius: 10px;
     padding: 20px 0;
 }
+.section {
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.section::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
 
 .heroImage{
     width: 70px;
