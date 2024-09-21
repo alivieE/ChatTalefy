@@ -32,26 +32,24 @@ const Chatspace = ({ messages }) => {
         </li>
 
         {messages.map((message, index) => (
-          <li key={index} className={s.userMessageText}>
+          <li key={index} className={s.messagesListItem}>
             <div className={s.userAsk}>
               <p className={s.userName}>You</p>              
               {message}
             </div>
-            {loading && index === messages.length - 1 ? ( 
-              <div className={s.loadingContainer}>
-                <img src={typing} alt="Loading..." className={s.loadingAnimation} />                
-              </div>
-            ) : (
+            
+   
               <div className={s.heroAnswer}>
                 <div className={s.heroImage}></div>
                 <div className={s.herotext}>
                   <p className={s.heroName}>Davinchi</p>
                   <p className={s.heroMessageText}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, illo? Dolore labore illum esse ducimus. Ab deleniti in fugiat exercitationem?
+                  {loading && index === messages.length - 1 ? ( 
+             <div className={s.loaderWrap}> <span class={s.loader}></span></div>) : ("Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, illo? Dolore labore illum esse ducimus. Ab deleniti in fugiat exercitationem?")}
                   </p>
                 </div>
               </div>
-            )}
+            
           </li>
         ))}
       </ul>

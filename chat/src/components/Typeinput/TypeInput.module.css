@@ -3,6 +3,7 @@
     flex-direction: column; /* Вертикальное выравнивание инпута и текста */
     align-items: center;
     position: relative;
+    padding-top: 20px;
   }
 
 .inputWrapper {
