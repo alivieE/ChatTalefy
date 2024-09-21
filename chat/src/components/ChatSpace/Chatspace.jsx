@@ -34,7 +34,7 @@ const Chatspace = ({ messages }) => {
         {messages.map((message, index) => (
           <li key={index} className={s.userMessageText}>
             <div className={s.userAsk}>
-              <p className={s.userName}>You</p>
+              <p className={s.userName}>You</p>              
               {message}
             </div>
             {loading && index === messages.length - 1 ? ( 

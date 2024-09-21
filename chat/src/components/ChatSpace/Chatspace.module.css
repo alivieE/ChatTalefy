@@ -62,7 +62,8 @@
 .userName{
     padding-bottom: 5px;
     font-size: 30px;
-    
+    color: rgb(40, 13, 58);
+    font-weight: 600;
 }
 
 
