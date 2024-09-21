@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import s from './WeatherApp.module.css'
-import { BarChart } from '@mui/x-charts/BarChart';
+import { LineChart } from '@mui/x-charts/LineChart';
 import CurrentCity from './CurrentCity/CurrentCity'
 import FindCity from './FindCity/FindCity'
 
 const WeatherApp = () => {
   const [weatherInfo, setWeatherInfo] = useState(null)
   const [showMore, setShowMore] = useState(false)
+const [temps, settemps] = useState([]);
+
+
+  const res = weatherInfo?.list?.map((el)=>{
+      return el.main.temp
+    }).slice(0,10) || [1,2,4]
+
+  console.log(weatherInfo?.list?.map((el)=>{
+    return el.main.temp
+  }).slice(0,10));
 
 
   return (
@@ -24,13 +34,18 @@ const WeatherApp = () => {
           setWeatherInfo={setWeatherInfo}
           setShowMore={setShowMore}
         />
-        <BarChart
-      xAxis={[{ scaleType: 'band', data: ['group A', 'group B', 'group C'] }]}
-      series={[{ data: [4, 3, 5] }, { data: [1, 6, 3] }, { data: [2, 5, 6] }]}
-      width={500}
-      height={300}
-    />  
+        
       </header>
+      {temps && <LineChart
+  xAxis={[{ data: [1, 2, 3, 4, 5, 6,7, 8, 9, 10,] }]}
+  series={[
+    {
+      data: res,
+    },
+  ]}
+  width={500}
+  height={300}
+/> }
       <div className={s.moreInfoWrap}>
         <h2 className={s.subtitle}>Weather Info</h2>
         {weatherInfo && showMore && (
