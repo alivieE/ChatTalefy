@@ -1,0 +1,40 @@
+.form{
+    display: flex;
+    gap: 20px;
+}
+.btnFind{
+    padding: 10px 40px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    font-size: 20px;
+}
+.input{
+    width: 300px;
+    padding: 15px 30px;
+    outline: none;
+    font-size: 24px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+.favList{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    width: 502px;
+    overflow: scroll;
+    padding-bottom: 20px;
+    text-transform: capitalize;
+}
+.favCity:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.close{
+    width: 12px;
+    cursor: pointer;
+}
+.cityWrap{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
