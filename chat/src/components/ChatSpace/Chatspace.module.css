@@ -8,8 +8,6 @@
 .heroMessageText{
     color: white;
     font-size:18px;
-    
-    
 }
 
 .herotext{
@@ -67,3 +65,8 @@
 }
 
 
+.userMessageText{
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}

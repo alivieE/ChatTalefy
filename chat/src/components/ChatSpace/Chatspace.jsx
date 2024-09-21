@@ -45,7 +45,7 @@ const Chatspace = ({ messages }) => {
               <div className={s.heroAnswer}>
                 <div className={s.heroImage}></div>
                 <div className={s.herotext}>
-                  <p className={s.userName}>You</p>
+                  <p className={s.heroName}>Davinchi</p>
                   <p className={s.heroMessageText}>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, illo? Dolore labore illum esse ducimus. Ab deleniti in fugiat exercitationem?
                   </p>
