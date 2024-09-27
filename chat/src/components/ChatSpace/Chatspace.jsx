@@ -3,19 +3,19 @@ import s from './Chatspace.module.css';
 import typing from '../../assets/type.svg';
 
 const Chatspace = ({ messages }) => {
-  const [loadingStatic, setLoadingStatic] = useState(true); // Loading state for static text
-  const [staticTypedText, setStaticTypedText] = useState(''); // For static text animation
-  const [loading, setLoading] = useState(false); // Loading state for dynamic messages
-  const [typing, setTyping] = useState(false); // Typing state for dynamic text
-  const [typedText, setTypedText] = useState(''); // For dynamic text animation
-
+  const [loadingStatic, setLoadingStatic] = useState(true); 
+  const [staticTypedText, setStaticTypedText] = useState(''); 
+  const [dynamicMessages, setDynamicMessages] = useState([]); 
+  const [loading, setLoading] = useState(false);
+  const [typing, setTyping] = useState(false);
+  const [typedText, setTypedText] = useState('');
+  
   const staticText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, illo? Dolore labore illum esse ducimus. Ab deleniti in fugiat exercitationem?";
 
   useEffect(() => {
     const loadingTimer = setTimeout(() => {
-      setLoadingStatic(false); // Stop showing the loading indicator after a delay
-    }, 3000); // Simulating a 3-second loading time
-
+      setLoadingStatic(false); 
+    }, 3000);
     return () => clearTimeout(loadingTimer);
   }, []);
 
@@ -34,42 +34,32 @@ const Chatspace = ({ messages }) => {
 
   useEffect(() => {
     if (messages.length > 0) {
-      setLoading(true);
-      const timer = setTimeout(() => {
+      const lastMessageIndex = messages.length - 1;
+        setLoading(true);
+        setTimeout(() => {
         setLoading(false);
-        setTyping(true); 
+        setTyping(true);
+      
+        const botResponseText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, illo? Dolore labore illum esse ducimus. Ab deleniti in fugiat exercitationem?";
+        let i = 0;
+        const interval = setInterval(() => {
+          setTypedText(botResponseText.substring(0, i));
+          i++;
+          if (i > botResponseText.length) {
+            clearInterval(interval);
+            setTyping(false);
+            setDynamicMessages((prev) => [...prev, botResponseText]); // Add the bot response to the list
+          }
+        }, 50);
+        
+        return () => clearInterval(interval);
       }, 3000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [messages]);
-
-  useEffect(() => {
-    if (typing) {
-      const text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, illo? Dolore labore illum esse ducimus. Ab deleniti in fugiat exercitationem?";
-      let i = 0;
-      const interval = setInterval(() => {
-        setTypedText(text.substring(0, i));
-        i++;
-        if (i > text.length) {
-          clearInterval(interval);
-          setTyping(false); 
-        }
-      }, 50);
-      return () => clearInterval(interval);
-    }
-  }, [typing]);
-
-  useEffect(() => {
-    if (messages.length > 0) {
-      setTyping(false); 
-      setTypedText(''); 
     }
   }, [messages]);
 
   return (
     <section className={s.section}>
-      <ul className={s.messagesList}>
+      <ul className={s.messagesList}>        
         <li className={s.messagesListItem}>
           <div className={s.heroAnswer}>
             <div className={s.heroImage}></div>
@@ -78,7 +68,7 @@ const Chatspace = ({ messages }) => {
               <p className={s.heroMessageText}>
                 {loadingStatic ? (
                   <div className={s.loaderWrap}>
-                    <span className={s.loader}></span>
+                    <span className={s.loader}></span> 
                   </div>
                 ) : (
                   staticTypedText
@@ -87,24 +77,39 @@ const Chatspace = ({ messages }) => {
             </div>
           </div>
         </li>
+
         {messages.map((message, index) => (
           <li key={index} className={s.messagesListItem}>
+
             <div className={s.userAsk}>
               <p className={s.userName}>You</p>
               <p className={s.userMessageText}>{message}</p>
             </div>
-            {index === messages.length - 1 && (
+
+            {index < messages.length - 1 && (
               <div className={s.heroAnswer}>
                 <div className={s.heroImage}></div>
                 <div className={s.herotext}>
                   <p className={s.heroName}>Davinchi</p>
+                  <p className={s.heroMessageText}>
+                    {dynamicMessages[index]}
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {index === messages.length - 1 && (
+              <div className={s.heroAnswer}>
+                <div className={s.heroImage}></div>
+                <div className={s.herotext}>
+                  <p className={s.heroName }>Davinchi</p>
                   <p className={s.heroMessageText}>
                     {loading ? (
                       <div className={s.loaderWrap}>
                         <span className={s.loader}></span>
                       </div>
                     ) : (
-                      typedText
+                      typedText 
                     )}
                   </p>
                 </div>
