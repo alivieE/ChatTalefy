@@ -1,11 +1,11 @@
 import React from 'react'
-import WeatherApp from './components/WeatherApp'
+import Chat from './components/Chat/Chat'
+import Chatspace from './components/ChatSpace/Chatspace'
 
 const App = () => {
   return (
-    <div>
-      <WeatherApp></WeatherApp>
-    </div>
+    
+    <Chat></Chat>
   )
 }
 
