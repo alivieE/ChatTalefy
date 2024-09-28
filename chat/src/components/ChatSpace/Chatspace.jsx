@@ -1,38 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import s from './Chatspace.module.css';
-import typing from '../../assets/type.svg';
 import Typewriter from 'typewriter-effect';
 
 const Chatspace = ({ messages }) => {
-  const [loadingStatic, setLoadingStatic] = useState(true); 
-  
+  const [loadingIndexes, setLoadingIndexes] = useState([]);
 
   useEffect(() => {
-    
-  setTimeout(() => {
-    setLoadingStatic(false)
-  }, 3000);
+    const timeoutId = setTimeout(() => {
+      setLoadingIndexes([0]);
+    }, 3000);
+
+    return () => clearTimeout(timeoutId);
   }, []);
+
+  const handleNewMessage = (index) => {
+    setLoadingIndexes((prev) => [...prev, index]);
+  };
 
   return (
     <section className={s.section}>
-      <ul className={s.messagesList}>        
+      <ul className={s.messagesList}>
         <li className={s.messagesListItem}>
           <div className={s.heroAnswer}>
             <div className={s.heroImage}></div>
             <div className={s.herotext}>
               <p className={s.heroName}>Davinchi</p>
-              
               <p className={s.heroMessageText}>
-                {loadingStatic ? (
+                {!loadingIndexes.includes(0) ? (
                   <div className={s.loaderWrap}>
-                    <span className={s.loader}></span> 
+                    <span className={s.loader}></span>
                   </div>
                 ) : (
                   <Typewriter
-        onInit={(typewriter) => {
-          typewriter.typeString("Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, illo? Dolore labore illum esse ducimus. Ab deleniti in fugiat exercitationem?").start();         }}
-/>
+                    onInit={(typewriter) => {
+                      typewriter.typeString(
+                        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, illo? Dolore labore illum esse ducimus. Ab deleniti in fugiat exercitationem?").start();
+                    }}
+                  />
                 )}
               </p>
             </div>
@@ -41,41 +45,33 @@ const Chatspace = ({ messages }) => {
 
         {messages.map((message, index) => (
           <li key={index} className={s.messagesListItem}>
-
             <div className={s.userAsk}>
               <p className={s.userName}>You</p>
               <p className={s.userMessageText}>{message}</p>
             </div>
-
-            {index < messages.length - 1 && (
-              <div className={s.heroAnswer}>
-                <div className={s.heroImage}></div>
-                <div className={s.herotext}>
-                  <p className={s.heroName}>Davinchi</p>
-                  <p className={s.heroMessageText}>
-                    
-                  </p>
-                </div>
+            <div className={s.heroAnswer}>
+              <div className={s.heroImage}></div>
+              <div className={s.herotext}>
+                <p className={s.heroName}>Davinchi</p>
+                <p className={s.heroMessageText}>
+                  {!loadingIndexes.includes(index + 1) ? (
+                    <div className={s.loaderWrap}>
+                      <span className={s.loader}></span>
+                    </div>
+                  ) : (
+                    <Typewriter
+                      onInit={(typewriter) => {
+                        typewriter.typeString(
+                          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, illo? Dolore labore illum esse ducimus. Ab deleniti in fugiat exercitationem?").start();
+                      }}
+                    />
+                  )}
+                </p>
               </div>
-            )}
-
-            {index === messages.length - 1 && (
-              <div className={s.heroAnswer}>
-                <div className={s.heroImage}></div>
-                <div className={s.herotext}>
-                  <p className={s.heroName }>Davinchi</p>
-                  <p className={s.heroMessageText}>
-                    
-                  </p>
-                </div>
-              </div>
-            )}
+            </div>
+            {!loadingIndexes.includes(index + 1) && setTimeout(() => handleNewMessage(index + 1), 3000)}
           </li>
-
         ))}
-        <li>
-        
-        </li>
       </ul>
     </section>
   );
