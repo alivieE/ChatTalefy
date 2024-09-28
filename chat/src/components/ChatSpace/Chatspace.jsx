@@ -8,19 +8,11 @@ const Chatspace = ({ messages }) => {
   
 
   useEffect(() => {
-    if (messages.length > 0) {
-      const lastMessageIndex = messages.length - 1;
-        setTimeout(() => {
-        
-      
-        const botResponseText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, illo? Dolore labore illum esse ducimus. Ab deleniti in fugiat exercitationem?";
-        let i = 0;
-        
-        
-        return () => clearInterval();
-      }, 3000);
-    }
-  }, [messages]);
+    
+  setTimeout(() => {
+    setLoadingStatic(false)
+  }, 3000);
+  }, []);
 
   return (
     <section className={s.section}>
@@ -39,9 +31,7 @@ const Chatspace = ({ messages }) => {
                 ) : (
                   <Typewriter
         onInit={(typewriter) => {
-          typewriter.typeString("Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, illo? Dolore labore illum esse ducimus. Ab deleniti in fugiat exercitationem?").start();         
-      
-  }}
+          typewriter.typeString("Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, illo? Dolore labore illum esse ducimus. Ab deleniti in fugiat exercitationem?").start();         }}
 />
                 )}
               </p>
